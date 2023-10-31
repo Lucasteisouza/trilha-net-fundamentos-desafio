@@ -16,12 +16,12 @@ namespace DesafioFundamentos.Models
 
         public void AdicionarVeiculo()
         {
-            Regex regex = new Regex(@"^[a-zA-Z]{3}\d{4}$");
+            Regex regex = new Regex(@"^[a-zA-Z]{3}\d{4}$|^[a-zA-Z]{3}\d{1}[a-zA-Z]{1}\d{2}$");
             Console.WriteLine("Digite a placa do veículo para estacionar:");
-            string resposta = Console.ReadLine();
+            string resposta = Console.ReadLine().ToUpper();
             if (!regex.IsMatch(resposta))
             {
-                Console.WriteLine("Placa inválida. Digite uma placa no formato AAA0000");
+                Console.WriteLine("Placa inválida. Digite uma placa no formato AAA0000 ou AAA0A00");
                 return;
             }
             veiculos.Add(resposta);
